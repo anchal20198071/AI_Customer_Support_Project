@@ -1,0 +1,6 @@
+venv/
+node_modules/
+ai-support-backend/venv/
+ai-support-backend/__pycache__/
+*.pyc
+ai-support-frontend/node_modules/
