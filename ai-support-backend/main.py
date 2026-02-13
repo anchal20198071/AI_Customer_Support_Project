@@ -9,9 +9,9 @@ from langchain_community.llms import Ollama
 from langchain_core.prompts import ChatPromptTemplate
 
 from rag import ingest_pdf, retrieve_context
+from graph import graph
 
 load_dotenv()
-print("OPENAI_API_KEY:", os.getenv("OPENAI_API_KEY")[:5])
 
 
 UPLOAD_DIR = "uploads"
@@ -60,12 +60,7 @@ def upload_file(file: UploadFile = File(...)):
 
 @app.post("/chat")
 def chat(req: ChatRequest):
-    context = retrieve_context(req.message)
-
-    chain = rag_prompt | llm
-    response = chain.invoke({
-        "question": req.message,
-        "context": context
+    result = graph.invoke({
+        "question": req.message
     })
-
-    return {"reply": response}
+    return {"reply": result["answer"]}
