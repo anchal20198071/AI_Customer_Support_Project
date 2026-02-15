@@ -88,7 +88,7 @@ If relevant information is missing, the assistant responds with:
 
 ### Backend
 
-- FastAPI
+- FastAPI(Python)
 - LangChain
 - LangGraph
 - ChromaDB
