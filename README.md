@@ -105,11 +105,8 @@ If relevant information is missing, the assistant responds with:
 <img width="1154" height="884" alt="image" src="https://github.com/user-attachments/assets/3c2048ed-3525-4efe-80d0-12fab334d403" />
 
 - RAG
+<img width="911" height="816" alt="image" src="https://github.com/user-attachments/assets/9c6fdb4b-cda1-41eb-acae-3a8eaa21ee7f" />
+<img width="919" height="764" alt="image" src="https://github.com/user-attachments/assets/319b6294-2232-4355-80e9-8f004fb97a3b" />
 
-
-![Chat UI](screenshots/chat-ui.png)
-![PDF Upload](screenshots/upload.png)
-![Clarification](screenshots/clarification.png)
-
-
-<img width="1040" height="888" alt="image" src="https://github.com/user-attachments/assets/af2f85c2-721e-4dfa-9b47-ceb5b5155c16" />
+- Out-of-Scope (Hallucination Test)
+<img width="904" height="777" alt="image" src="https://github.com/user-attachments/assets/d91628f3-dd1c-4c55-8b09-44bcde22f083" />
