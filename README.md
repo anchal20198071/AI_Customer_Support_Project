@@ -24,41 +24,35 @@ The system supports **document upload**, **retrieval-augmented generation (RAG)*
 
 ### 🔷 High-Level Flow
 
-User (React UI)
-   |
-   | 1. Upload PDF / Ask Question
-   v
-FastAPI Backend
-   |
-   |-- /upload → PDF ingestion
-   |-- /chat   → LangGraph execution
-   v
-LangGraph Orchestration
-   |
-   |-- Intent / Clarity Check
-   |-- Clarifying Question (if needed)
-   |-- RAG Node (Vector Retrieval)
-   |-- LLM Reasoning
-   v
-Response returned to UI
-
+User (React UI)  
+&nbsp;&nbsp;↓  
+1. Upload PDF / Ask Question via FastAPI Backend  
+&nbsp;&nbsp;├── **/upload** → PDF ingestion & vectorization  
+&nbsp;&nbsp;└── **/chat** → LangGraph execution  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+LangGraph Orchestration  
+&nbsp;&nbsp;├── Intent / Clarity Check  
+&nbsp;&nbsp;├── Clarifying Question (if needed)  
+&nbsp;&nbsp;├── RAG Node (Vector Retrieval via ChromaDB)  
+&nbsp;&nbsp;└── LLM Reasoning (Mistral via Ollama)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Final response returned to the UI
 
 ---
 
 ### 🔷 LangGraph Control Flow
 
-User Question
-   ↓
-Router Node (Is question clear?)
-   ├── No → Ask Clarifying Question
-   └── Yes
-        ↓
-Retrieve Relevant Documents (Chroma)
-        ↓
-LLM Reasoning (Mistral via Ollama)
-        ↓
+User Question  
+&nbsp;&nbsp;↓  
+Router Node (Is the question clear?)  
+&nbsp;&nbsp;├── ❌ No → Ask Clarifying Question  
+&nbsp;&nbsp;└── ✅ Yes  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+Retrieve Relevant Documents (ChromaDB)  
+&nbsp;&nbsp;↓  
+LLM Reasoning (Mistral via Ollama)  
+&nbsp;&nbsp;↓  
 Final Answer
-
 
 ---
 
