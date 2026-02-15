@@ -34,4 +34,7 @@ def retrieve_context(query: str) -> str:
     )
 
     docs = db.similarity_search(query, k=3)
+    
+    print("RETRIEVED DOCS:", len(docs))
+
     return "\n\n".join(d.page_content for d in docs)

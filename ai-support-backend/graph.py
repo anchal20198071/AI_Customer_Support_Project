@@ -14,31 +14,32 @@ class ChatState(TypedDict):
 # Router Node
 # --------------------
 def router_node(state: ChatState):
+    print("🧭 ROUTER NODE HIT")
     return state
 
 
 # --------------------
 # Routing Decision
 # --------------------
-def route_decision(state: ChatState):
+def route_decision(state):
     question = state["question"].lower()
 
     unclear_tokens = ["this", "that", "it", "they", "something"]
     is_short = len(question.split()) < 4
 
+    # 1️ If question is unclear → clarify
     if is_short or any(t in question for t in unclear_tokens):
         return "clarify"
 
-    if "document" in question or "pdf" in question:
-        return "rag"
-
-    return "llm"
+    # 2 OTHERWISE → ALWAYS try RAG first
+    return "rag"
 
 
 # --------------------
 # Clarification Node
 # --------------------
 def clarify_node(state: ChatState):
+    print("❓ CLARIFY NODE HIT")
     return {
         "answer": "Could you please clarify your question or provide more details so I can help you better?"
     }
@@ -48,6 +49,7 @@ def clarify_node(state: ChatState):
 # RAG Node (USING rag.py)
 # --------------------
 def rag_node(state: ChatState):
+    print("📚 RAG NODE HIT")
     from rag import retrieve_context
     from llm import llm  # Ollama LLM
 
@@ -94,8 +96,7 @@ builder.add_conditional_edges(
     route_decision,
     {
         "clarify": "clarify",
-        "rag": "rag",
-        "llm": "llm",
+        "rag": "rag"
     }
 )
 
