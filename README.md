@@ -1,5 +1,7 @@
 # 🧠 AI Customer Support Assistant (RAG + LangGraph)
 
+An AI-powered customer support assistant that answers user questions from uploaded documents using Retrieval-Augmented Generation (RAG). The system intelligently handles ambiguous queries, asks clarifying questions, and produces document-grounded answers using a LangGraph-based reasoning flow.
+
 An end-to-end AI-powered customer support assistant built using **React**, **FastAPI**, **LangChain**, **LangGraph**, and **local LLMs (Ollama)**.
 
 The system supports **document upload**, **retrieval-augmented generation (RAG)**, **clarification-aware reasoning**, and **multi-document querying**.
