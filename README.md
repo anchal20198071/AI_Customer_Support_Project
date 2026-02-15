@@ -98,6 +98,14 @@ If relevant information is missing, the assistant responds with:
 ---
 
 ## 📸 Screenshots
+- Chat UI Screenshot
+<img width="1155" height="881" alt="image" src="https://github.com/user-attachments/assets/f9628cb4-174e-4df9-aaa7-7c2b9107eb20" />
+
+- PDF Upload Screenshot
+<img width="1154" height="884" alt="image" src="https://github.com/user-attachments/assets/3c2048ed-3525-4efe-80d0-12fab334d403" />
+
+- RAG
+
 
 ![Chat UI](screenshots/chat-ui.png)
 ![PDF Upload](screenshots/upload.png)
